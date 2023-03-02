@@ -1,23 +1,14 @@
 import {
   AppBar,
   Box,
-  Button,
-  Container,
-  Divider,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
   Toolbar,
   Typography,
 } from "@mui/material";
-import React from "react";
 import { Outlet, Link } from "react-router-dom";
 
 const navItems = [
   { text: "Home", href: "/" },
-  { text: "Hourly Utilization", href: "/hourly" },
+  { text: "Access Cosmos", href: "/cosmos" },
 ];
 
 const AppNavBar = () => {
@@ -37,7 +28,7 @@ const AppNavBar = () => {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box sx={{ m: 10 }}>
+      <Box sx={{ m: 10, mt: 12 }}>
         <Outlet />
       </Box>
     </>

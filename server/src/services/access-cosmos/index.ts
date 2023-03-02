@@ -1,22 +1,27 @@
 import { provide } from 'inversify-binding-decorators';
-import { Container as CosmosDbContainer } from '@azure/cosmos';
+import { Database } from '@azure/cosmos';
 import { CosmosDbService } from '../cosmos-db-service';
 import { inject } from 'inversify';
 import { BINDINGS } from '../../bindings';
 
+
+interface IncomingArguement{
+  cosmosContainer: string;
+  queryCommand: string;
+}
+
 @provide(BINDINGS.AccessCosmosService)
 export class AccessCosmosService {
-  private cosmosDbContainer: CosmosDbContainer;
+  private cosmosDb: Database;
 
   constructor(@inject(BINDINGS.CosmosDbService) private cosmosDbService: CosmosDbService) {
-    this.cosmosDbContainer = this.cosmosDbService.database.container("container-pro-hvc-bo-hour-utilization");
+    this.cosmosDb = this.cosmosDbService.database;
   }
   
-  async retrieve(){
-
-    const QUERY = "SELECT * FROM c ORDER BY c._ts DESC OFFSET 0 LIMIT 6";
+  public async retrieve(arg: IncomingArguement){
     try {
-      const {resources: items } = await this.cosmosDbContainer.items.query({query: QUERY}).fetchAll();
+      const cosmosDbContainer = this.cosmosDb.container(arg.cosmosContainer);
+      const {resources: items } = await cosmosDbContainer.items.query({query: arg.queryCommand}).fetchAll();
 
       if (!items){
         return "No response";
@@ -28,5 +33,4 @@ export class AccessCosmosService {
       return "ERROR: " + e;
     }
   }
-
 }

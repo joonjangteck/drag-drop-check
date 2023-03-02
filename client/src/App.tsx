@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
-import Hourly from './pages/Hourly';
+import AccessCosmos from './pages/AccessCosmos';
 import AppNavBar from './pages/AppNavBar';
 
 
@@ -12,7 +11,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<AppNavBar />}>
             <Route index element={<Home />} />
-            <Route path="/hourly" element={<Hourly />} />
+            <Route path="/cosmos" element={<AccessCosmos />} />
           </Route>
         </Routes>
       </BrowserRouter>

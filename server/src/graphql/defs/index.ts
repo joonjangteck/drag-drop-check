@@ -2,5 +2,5 @@ import { gql } from 'graphql-tag';
 
 export default gql`
   type Query {
-    AccessCosmos: String
+    AccessCosmos(cosmosContainer: String, queryCommand: String): String
   }`;
