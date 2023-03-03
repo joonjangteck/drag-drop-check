@@ -1,5 +1,4 @@
 ### Set Up Instruction
-- copy and paste the file "default.env" and place it in the "/server" folder
 - rename "default.env" in the "/server" folder as ".env"
 - add required values in ".env" file
     - values can be found in "Azure Cosmos DB account > Keys" through the Azure portal (endpoint = URI, key = PRIMARY KEY)
