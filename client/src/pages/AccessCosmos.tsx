@@ -128,7 +128,7 @@ function AccessCosmos() {
           />
         </Grid>
         <Grid item xs={2}>
-          <Button variant="contained" sx={{ height: 1 }} onClick={handlePost}>
+          <Button variant="contained" sx={{ height: 1 }} onClick={handlePost} disabled={queryCommand == "" || cosmosContainer == ""}>
             Get Data
           </Button>
         </Grid>
