@@ -164,7 +164,7 @@ function AccessCosmos() {
         </Grid>
 
         <Grid item xs={6}>
-          <h2>Azure Data Factory CSV</h2>
+          <h2>CSV</h2>
           <DisplayCsv inJsonData={file} />
         </Grid>
         <Grid item xs={6}>
